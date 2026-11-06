@@ -27,7 +27,8 @@ body{margin:0; font-family:var(--body); color:var(--ink); background:#160a13; ov
 #fx{position:fixed; inset:0; z-index:-2; pointer-events:none}
 .vig{position:fixed; inset:0; z-index:-1; pointer-events:none;
   background:radial-gradient(120% 90% at 50% 40%, transparent 55%, rgba(8,3,8,.6))}
-.scene{min-height:100svh; scroll-snap-align:start; display:flex; flex-direction:column;
+.scene{height:100svh; height:100dvh; scroll-snap-align:start; scroll-snap-stop:always; overflow:hidden;
+  display:flex; flex-direction:column;
   align-items:center; justify-content:center; text-align:center; position:relative;
   padding:calc(env(safe-area-inset-top,0px) + 28px) max(20px,env(safe-area-inset-left,0px))
           calc(env(safe-area-inset-bottom,0px) + 28px) max(20px,env(safe-area-inset-right,0px))}
@@ -93,7 +94,6 @@ body{margin:0; font-family:var(--body); color:var(--ink); background:#160a13; ov
   <div class="rv kicker">psst&hellip; toi la&#768;-bas</div>
   <div class="rv d1 big">ouvre &#128156;</div>
   <div class="rv d2 lead">j&#39;ai code&#769; un petit truc rien que pour toi.<br>monte doucement&#8230;</div>
-  <a class="rv d3 wknd" id="wknd" href="https://www.youtube.com/results?search_query=the+weeknd+die+for+you" target="_blank" rel="noopener">&#127911; ou mets ton Weeknd</a>
   <div class="scroll-hint">glisse vers le haut &#8593;</div>
 </section>
 
@@ -201,7 +201,7 @@ body{margin:0; font-family:var(--body); color:var(--ink); background:#160a13; ov
     var bar=document.getElementById('bar'), pct=document.getElementById('pct');
     setTimeout(function(){ bar.style.width='100%'; },120);
     var v=0, t=setInterval(function(){ v+=3; if(v>=100){v=100; clearInterval(t);
-      setTimeout(function(){ pct.textContent='&#8734; %'; pct.style.color='#ffd76b'; bar.style.boxShadow='0 0 30px #ffd76b'; burstAt(0.5,0.4,20); },500);
+      setTimeout(function(){ pct.innerHTML='&#8734; %'; pct.style.color='#ffd76b'; bar.style.boxShadow='0 0 30px #ffd76b'; burstAt(0.5,0.4,20); },500);
     } pct.textContent=v+'%'; },26);
   }
 
